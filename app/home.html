@@ -1,0 +1,173 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>logging_app</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <div class="container">
+			
+				<div class="col-md-12"> 
+						
+					<div class="panel panel-default panel-fade">
+					
+						<div class="panel-heading">
+					   
+							<span class="panel-title">
+							
+								<div class="pull-left">
+								
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#home" data-toggle="tab"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                                    <li><a href="#stackoverflow" data-toggle="tab"><i class="glyphicon glyphicon-film"></i> Stack Overflow</a></li>
+                                    <li><a href="#reasons" data-toggle="tab"><i class="glyphicon glyphicon-question-sign"></i> Why </a></li>
+                                    <li><a href="#events" data-toggle="tab"><i class="glyphicon glyphicon-dashboard"></i> Events </a></li>
+								</ul>
+									
+								</div>
+								
+								<div class="btn-group pull-right">
+									<div class="btn-group">
+										<a id="logout" href="#">Logout</a>
+									</div>
+								</div>
+
+								<div class="clearfix"></div>
+
+							</span>
+							
+						</div>
+
+						<div class="panel-body">
+                        
+                            		
+							<div class="tab-content">
+							
+                                 <div class="tab-pane fade in active" id="home">
+									<div id="accountname" class="display-username"> </div>
+									<TABLE id="loginhistory" class="table table-striped" >
+                                            <thead> <tr> <td> <b>Session status</b> </td> <td> <b>Logged in time </b></td> <td> <b>Logged out time </b></td> </tr> </thead> <tbody>
+									</TABLE>
+								</div>
+													
+								<div class="tab-pane fade" id="stackoverflow">
+								<h3>Stack Overflow</h3>								 
+								 <a href="https://stackoverflow.com/questions/tagged/java?sort=frequent&pageSize=15" target="_blank">Click here to redirect to StackOverflow</a>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="reasons">
+                                    <h3>Why do you decide to log these actions?</h3>								 
+                                    <TABLE id="reasons" class="table table-striped" >
+                                            <colgroup>
+                                                <col class="col-md-3">
+                                                <col class="col-md-3">
+                                                <col class="col-md-7">
+                                            </colgroup>
+                                            <thead> <tr> <td> <b>Event Logged</b> </td> <td> <b> Attributes </b> </td> <td> <b>Reason </b></td> </tr> </thead> 
+                                            <tbody>
+                                            <tr> <td> <b> Idle time on an answers </b> </td>  <td> 1. Title <br/> 2. Answer / Question  <br/> 3. Code <br/> 4. Author details (name, event, reputation score, gold badge, silver badge and bronze badge) </td> <td> Have logged all the answers on which the user spends more than 3 secs which shows the answer is useful to the user or difficult to understand </td> </tr>  
+                                            <tr> <td> <b> Snippet click </b> </td>  <td> 1. Title <br/> 2. Answer / Question  <br/> 3. Code <br/> 4. Author details (name, event, reputation score, gold badge, silver badge and bronze badge) </td> <td> When the user clicks run snippet code button the corresponding post is logged which can be used to find snippets that has been run by more users </td> </tr>  
+                                            <tr> <td> <b> Detect copy event </b> </td>   <td> 1. Title <br/> 2. Answer / Question  <br/> 3. Copied text <br/> 4. Author details (name, event, reputation score, gold badge, silver badge and bronze badge) </td> <td> When the user copies snippet / code from the answers posted by other users the answer details and author details are logged. This can be used to find which answer is copied more and credits can be given to those answers / authors </td> </tr>  
+                                            <tr> <td> <b> Vote up / down </b> </td>  <td> 1. Title <br/> 2. Answer / Question  <br/> 3. Code <br/> 4. Author details (name, event, reputation score, gold badge, silver badge and bronze badge)  </td> <td> Have logged the posts in which user has voted along with author details so that it can be used to find which user's post has been voted the most by our user and credits can be given to the author based on that </td> </tr> 
+                                            <tr> <td> <b> Scroll down </b> </td> <td> 1. Post <br/> 2. Scroll Position <br/> </td> <td> User's scroll event is captured when the user reaches 90% of the page. This may show that the user didn't find the answer till the end of page </td> </tr> 
+                                            <tr> <td> <b> Search </b> </td> <td> 1. Search text </td> <td> User's search event is captured along with the search criteria which can be used to show related links at top in future based on the search</td> </tr> 
+                                            <tr> <td> <b> Bookmark page </b> </td>  <td> 1. Bookmark title <br/> 2. URL </td> <td> Have logged the page title and link which the user has bookmarked so that user interested pages are logged </td> </tr>  
+                                            <tr> <td> <b> Page load </b> </td>  <td> 1. Post <br/> 2. Answers count </td> <td> All the pages visited by user is logged with post details and answers count. This can be used to track views fo the post </td> </tr>  
+                                            <tr> <td> <b> Post Links in summary </b> </td>  <td> 1. Link text <br/> 2. Answers count <br/> 3. Vote count <br/> 4. Views count <br/> 5. Current page number  <br/> 5. Source post <br/> 6. Source link <br/> 7. Link <br/> 8. Serial number <br/> 9. Related tags  </td> 
+                                                            <td> All links which are displayed in summary and clicked by user are logged. Attributes like answers count, vote count and views count help us to rate the post link. Current page number helps us to identify in which page the user has found useful link. Serial number is used to identify the useful link within a page. These can be used to personalize search results for the user in future. Also the source page from which this link was clicked is tracked so that the sequence of pages visited by the user can be tracked.  </td> </tr>  
+                                            <tr> <td> <b> Related / Linked Links </b> </td>  <td> 1. Link text <br/> 2. Vote count <br/> 3. Source post <br/> 4. Source link <br/> 5. Link </td> <td> Similar to above hyperlinks related and linked links are tracked. </td> </tr>  
+                                            <tr> <td> <b> Hot network questions </b> </td>  <td> 1. Post <br/> 2. Source post <br/> 3. Link <br/> 4. Source link </td> <td> Similar to above hyperlinks hot network links are tracked. </td> </tr>  
+                                            <tr> <td> <b> Post answers / questions </b> </td>  <td> 1. Title <br/> 2. Question / Answer </td> <td> Have logged when the user posts questions / answers which can be used to find the topics the user is interested in </td> </tr>  
+                                            <tr> <td> <b> Favorites click </b> </td>  <td> 1. Title <br/> 2. Question  <br/> 3. Favorite count <br/> 4. Code <br/> 5. Author details (name, event, reputation score, gold badge, silver badge and bronze badge)  </td> <td> Have logged the posts, favorite count and author's details which the user has marked as favorite. This can be used to personalize search results for the user by showing results of users with more favorite count </td> </tr>    
+                                            <tr> <td> <b> Related tags click </b> </td>  <td> 1. Title <br/> 2. Page number  </td> <td> The related tags which the user has clicked has been logged so that user interested tags can be identified </td> </tr>         
+                                            <tr> <td> <b> Share / Edit post </b> </td>  <td> 1. Title <br/> 2. Answer / Question  <br/> 3. Code <br/> 4. Author details (name, event, reputation score, gold badge, silver badge and bronze badge) </td> <td> Have logged the posts and author's details which the user has shared / edited. This can be used to personalize search for the user by showing results posted by user which has been shared more. The edit details can be used to identify post which has undergone multiple edits  </td> </tr> </tbody>       
+                                            <tr> <td> <b> Page visited </b> </td>  <td> 1. Title <br/> 2. Page number </td> <td> The pages visited by user is tracked which can be used to improve the search results and show relevant links in first few pages </td> </tr> </tbody>
+									</TABLE>
+                                </div>
+
+                                <div class="tab-pane fade" id="events">
+                                <h3>Events log</h3>								 
+                                <TABLE id="eventstable" class="table table-striped" >
+                                        <colgroup>
+                                            <col class="col-md-3">
+                                            <col class="col-md-3">
+                                            <col class="col-md-7">
+                                        </colgroup>
+                                        <thead> <tr> <td> <b>Event Logged</b> </td> <td> <b> Time </b> </td> <td> <b> Attributes </b></td> </tr> </thead> 
+                                        <tbody>
+                                        </tbody>
+                                </TABLE>
+                                </div>
+                                
+							</div>
+							
+						</div>
+
+					</div>
+						
+				</div>
+						
+			</div>
+			
+
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/home.js -->
+    <script src="scripts/js.cookie.js"></script>
+    <script src="scripts/home.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
